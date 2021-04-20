@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('data',"MongodbController@index");
+Route::get('data',[MongodbController::class, 'index']);
 
 Route::get('tt',"UserController@index");
 

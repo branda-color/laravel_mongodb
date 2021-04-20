@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class MongodbController extends Controller
 {
-    public function index(){
-        DB::connection('mongodb')       //选择使用mongodb
-              ->collection('yuyu')           //选择使用users集合
-              ->insert([                          //插入数据
-                      'name'  =>  'tom', 
-                      'age'     =>   18
-                  ]);
+    public function index()
+    {
+        DB::collection('yuyu')           //选择使用yuyu集合
+            ->insert([                          //插入数据
+                'name'  =>  'yuyu',
+                'age'     =>   1000
+            ]);
+
+        $res = DB::collection('yuyu')->get();   //查询数据
+        dd($res);
     }
-
-    $res = DB::connection('mongodb')->collection('yuyu')->all();   //查询所有数据
-    dd($res);
-
 }
